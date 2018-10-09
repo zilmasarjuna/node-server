@@ -7,6 +7,7 @@ hbs.registerPartials(__dirname + '/views/partials');
 app.set('view engine', 'hbs');
 app.use(express.static(__dirname + '/public'));
 
+const port = process.env.PORT || 3000;
 app.use((req, res, next) => {
     var now = new Date().toString();
     var log = `${now}: ${req.method} ${req.url}`;
@@ -51,6 +52,6 @@ app.get('/bad', (req, res) => {
     })
 }) 
 
-app.listen(3100, () => {
-    console.log('Server is up!');
+app.listen(port, () => {
+    console.log(`Server is up ${port}!`);
 });
